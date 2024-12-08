@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+       /* Animated Background - Lighter Colors */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        -45deg, 
+        #ffd1d1, #fff3e6, #e6ffe6, #e6f7ff, 
+        #f0e6ff, #ffe6f7
+    );
+    background-size: 400% 400%;
+    animation: rainbowGradient 15s ease infinite;
+}
+
+@keyframes rainbowGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Background Animations - More Subtle */
+.background-animations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.1; /* Reduced opacity */
+    animation: float 20s infinite linear;
+}
+
+.floating-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-icon:nth-child(2) { top: 20%; left: 80%; animation-delay: -5s; }
+.floating-icon:nth-child(3) { top: 60%; left: 20%; animation-delay: -10s; }
+.floating-icon:nth-child(4) { top: 80%; left: 70%; animation-delay: -15s; }
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.1;
+    }
+    50% {
+        transform: translate(100px, 100px) rotate(180deg);
+        opacity: 0.15;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0.1;
+    }
+}
+
+/* Main Content Container */
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Title Animation */
+.slide-in {
+    color: #333; /* Darker color for better contrast */
+    text-align: center;
+    font-size: 2.5em;
+    margin: 30px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: slideInFade 1s ease-out;
+    font-weight: 600;
+}
+
+@keyframes slideInFade {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Event Grid Layout */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px; /* Increased gap */
+    padding: 20px;
+}
+
+/* Event Card Styling - More Prominent */
+.card {
+    background: white; /* Solid white background */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    border: none;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.listing-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.card-body {
+    padding: 25px;
+    background: white;
+}
+
+.card-text h5 {
+    color: #2c3e50; /* Darker text for better readability */
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card-text h6 {
+    color: #505c6b; /* Adjusted text color */
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Hover Effects */
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Glass Effect - More Subtle */
+.glass-effect {
+    background: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Footer Styling */
+footer {
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 1s ease-out;
+}
+
+footer p {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .slide-in {
+        font-size: 2em;
+    }
+
+    .card {
+        margin: 10px 0;
+    }
+}
+
+/* Custom Scrollbar - More Subtle */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dadada;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #cacaca;
+}
+
+/* Additional Card Enhancements */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Optional: Add a subtle border to cards */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* New Event Button Container */
+.new-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+/* New Event Button Styling */
+.new-event-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 28px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.new-event-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.new-event-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.new-event-btn:hover .btn-icon {
+    transform: rotate(90deg);
+}
+
+.btn-text {
+    letter-spacing: 0.5px;
+}
+
+.new-event-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transition: left 0.7s ease;
+}
+
+.new-event-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .new-event-btn {
+        padding: 10px 24px;
+        font-size: 1em;
+    }
+    
+    .btn-icon {
+        font-size: 1.1em;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Background Animations -->
+    <div class="background-animations">
+        <div class="floating-icon">🎭</div>
+        <div class="floating-icon">🎨</div>
+        <div class="floating-icon">🎵</div>
+        <div class="floating-icon">🎪</div>
+    </div>
+
+    <div class="main-content">
+        <h3 class="slide-in">OnGoing Events</h3>    
+        
+        <div class="new-button-container">
+            <a href="/new" class="new-event-btn">
+                <span class="btn-icon">+</span>
+                <span class="btn-text">New Event</span>
+            </a>
+        </div>
+
+        <section id="about" class="about">
+            <div class="row">
+                <% for(let list of allListing){ %>
+                    <a href="/get/<%= list._id %>" class="listing-link">
+                        <div class="card hover-shadow hover-scale glass-effect">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h5><b><i><%= list.title %></i></b></h5>
+                                    <h6><i><%= list.description %></i></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <% } %>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; Event management webpage 2024. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

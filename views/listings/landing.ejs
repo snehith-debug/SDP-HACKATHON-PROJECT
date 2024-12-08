@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to EventHub</title>
+
+    <!-- <link rel="stylesheet" href="../public/css/landing.css"> -->
+    <style>
+        .landing-container {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Image Carousel */
+.image-carousel {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.carousel-track img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 10px;
+}
+
+/* Features Section */
+.intro-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    flex: 1;
+    max-width: 300px;
+    padding: 2rem;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+}
+
+.get-started-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: #2c3e50;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+    transform: translateY(-3px);
+    background: #34495e;
+}
+
+/* Animations */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="main-title">Welcome to EventHub</h1>
+            <p class="subtitle">Your One-Stop Destination for Memorable Events</p>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="image-carousel">
+            <div class="carousel-track">
+                <img src="https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_640.jpg" alt="Event 1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_640.jpg" alt="Event 2">
+                <img src="https://cdn.pixabay.com/photo/2023/04/03/12/59/crowd-7896788_640.jpg" alt="Event 3">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/17/47/iphone-1836071_640.jpg" alt="Event 4">
+                <img src="https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_640.jpg" alt="Event 1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_640.jpg" alt="Event 2">
+                <img src="https://cdn.pixabay.com/photo/2023/04/03/12/59/crowd-7896788_640.jpg" alt="Event 3">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/17/47/iphone-1836071_640.jpg" alt="Event 4">
+            </div>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="intro-section">
+            <h2>What We Offer</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="feature-icon">🎉</i>
+                    <h3>Event Planning</h3>
+                    <p>Professional event planning services</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon">📅</i>
+                    <h3>Easy Booking</h3>
+                    <p>Seamless booking experience</p>
+                </div>
+                <div class="feature">
+                    <i class="feature-icon">💫</i>
+                    <h3>Unique Venues</h3>
+                    <p>Access to exclusive venues</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <a href="/home" class="get-started-btn">Get Started</a>
+        </div>
+    </div>
+
+    <script src="/js/landing.js"></script>
+</body>
+</html>

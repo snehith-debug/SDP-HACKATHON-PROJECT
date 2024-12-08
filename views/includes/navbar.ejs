@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c2yuxvEYjNZt6rCMiY4nWL+i8Q4hpbjbuAIh4gvNG95Z70szlFGwK38IGt4vG0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-zR2Th/03ns5/I8A898HbFsd6kD795pFAwW38J7hQOIJX01xr4tn6C81aE+Bz2sjB+YgtE+kk2px/1Qg6Q6kWQ" crossorigin="anonymous" />
+    <style>
+        .navbar {
+            background-color: #2c3e50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ecf0f1 !important;
+            transition: color 0.3s ease;
+        }
+    
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #3498db !important;
+        }
+    
+        .navbar-toggler {
+            border-color: #ecf0f1;
+        }
+    
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(236, 240, 241, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md border-bottom sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><i class="fa-regular fa-pen-to-square"></i></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <h5><a class="nav-link" href="/"><b>Home</b></a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a class="nav-link" href="/new"><b>New One</b></a></h5>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <% if (!currUser) { %>
+                    <li class="nav-item ms-auto">
+                        <h5><a class="nav-link" href="/signUp"><b><i>Sign Up</i></b></a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a class="nav-link" href="/login"><b><i>Login</i></b></a></h5>
+                    </li>
+                    <% } %>
+                    <% if (currUser) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C89scichPD02hX1v7vAxqF0uMOG7kQiqJ06BA8+fmhZ71lejN0a2OkWp2n0972tt2MR" crossorigin="anonymous"></script>
+</body>
+</html>

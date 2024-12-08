@@ -1,0 +1,17 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+<body>
+    <h2>Edit data</h2><br><br>
+    <form method="post" action="/route/<%= UserList._id %>?_method=PUT" enctype="multipart/form-data">
+<div>
+    <label for="title" class="form-label">Title</label>
+    <input name="title" value = "<%= UserList.title %>" type="text" class="form-control" required/><br/><br/></div>
+<div><label for="description" class="form-label">Theme of Event</label>
+    <textarea name="description"  type="text" class="form-control" required><%= UserList.description %></textarea><br/><br/></div>
+<div><label for="story" class="form-label">Venue</label>
+        <textarea name="story"  type="text" class="form-control" required><%= UserList.story %></textarea><br/><br/></div>
+        <button class="btn btn-dark">Edit</button>
+    </form><br><br>
+</body></div>
+</div>

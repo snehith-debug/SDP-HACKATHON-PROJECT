@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+<body>
+    <h2>Enter your Social Event:</h2><br><br>
+    <form method="post" action="/postNew" >
+        <div class="mb-3">
+            <label for="title" class="form-label">Title/Label --></label>
+        <input name="title" placeholder="Event title here" type="text" class="form-control" required/>
+        </div><br>
+        <div class="mb-3">
+            <label for="description" class="form-label">About your Event</label>
+        <textarea name="description" placeholder="Enter your theme of event here" type="text" class="form-control" required></textarea>
+        </div><br>
+        <div class="mb-3">
+            <label for="story" class="form-label">Please enter your Venue:</label>
+        <textarea name="story" placeholder="Enter your event venue here" type="text" class="form-control" required></textarea>
+        </div><br>
+        <button class="btn btn-dark">Submit</button>
+    </form>
+    <br><br>
+</body>
+</div>
+</div>

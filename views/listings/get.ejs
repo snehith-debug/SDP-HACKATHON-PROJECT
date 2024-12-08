@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+<h3 class="info offset-2">Info</h3>
+<div class="card col-6 offset-2">
+    <div class="card-body">
+    <p class="card-text"><li><%= UserList.title %></li>
+        <li><%= UserList.description %></li>
+        <li><%= UserList.story %></li></p>
+    </div>
+</div>
+<body>
+    <% if(currUser && currUser._id.equals(UserList.owner)) { %>
+    <div class="btn btn-sm btn-dark col-1"><a href="/<%= UserList._id %>/edit" >Update</a><br><br>
+    <form method="post" action="/delete/<%= UserList._id %>?_method=DELETE">
+        <button >Drop-Down / Delete</button></div>
+    </form>
+        <br><hr><br>
+    <div>
+    <% } %><% if(currUser){ %>
+    <h4>Give a review</h4>
+    <form method="POST" action = "/review/new/<%= UserList._id %>" >
+        <div>
+            <fieldset class="starability-slot">
+                <legend>Rating for the Event:</legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset><br><br>
+            <label for="rating">Comment about the Event:</label><br>
+            <div><textarea name="comment" cols="80" rows="10"></textarea>
+        </div><br>
+        <button >submit</button>
+    </form>
+    </div>
+    <% } %>
+    <br><hr><br>
+    <h4>Reviews</h4><br>
+    <% for(review of UserList.reviews) { %>
+        <div class="card-body">
+            <h5 class="card-title">Joi Due</h5>
+            <p class="card-text"><%= review.comment %></p>
+            <p class="card-text"><%= review.rating %> </p>
+            <h3><%= UserList.title %></h3>
+            <p class="starability-result" data-rating="<%= review.rating %>">
+            </p>
+        </div>
+        <form method="post" action="/delete/<%= UserList._id %>/review/<%= review._id %>?_method=DELETE"> 
+            <button class="btn btn-sm btn-dark">Delete</button>
+        </form>
+    <% } %>
+</body>
+</div>
+</div>

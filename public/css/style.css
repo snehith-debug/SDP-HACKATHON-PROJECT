@@ -1,0 +1,603 @@
+// ... existing code ...
+
+/* Login and Signup Forms */
+.auth-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out;
+}
+
+.auth-form input {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: #2c3e50;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    outline: none;
+}
+
+.auth-form .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Home Button Animation */
+.home-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.home-btn:hover:before {
+    left: 100%;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* New Item Form */
+.new-item-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+    animation: slideIn 0.5s ease-out;
+}
+
+.new-item-form label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.new-item-form input,
+.new-item-form textarea {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.new-item-form input:focus,
+.new-item-form textarea:focus {
+    border-color: #2c3e50;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    outline: none;
+}
+/* ... existing code ... */
+
+.new-item-form input,
+.new-item-form textarea {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+.new-item-form input:focus,
+.new-item-form textarea:focus {
+    border-color: #2c3e50;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    outline: none;
+    transform: scale(1.01);
+}
+
+/* Interactive Elements */
+.interactive-element {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-element:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Button Press Effect */
+.btn {
+    transition: transform 0.1s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Form Field Focus Animation */
+@keyframes fieldFocus {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(44, 62, 80, 0.02); }
+    100% { background-color: transparent; }
+}
+
+.auth-form input:focus,
+.new-item-form input:focus,
+.new-item-form textarea:focus {
+    animation: fieldFocus 0.5s ease-out;
+}
+/* Popup Styles */
+.popup {
+    position: relative;
+    cursor: pointer;
+}
+
+.popup:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    animation: fadeIn 0.2s ease-out;
+    z-index: 1000;
+}
+
+.popup:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% - 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #2c3e50 transparent transparent transparent;
+    z-index: 1000;
+}
+
+/* Cursor Effects */
+input, textarea, button, .interactive-element {
+    cursor: pointer;
+}
+
+input:hover, textarea:hover {
+    cursor: text;
+}
+
+input:focus, textarea:focus {
+    caret-color: #2c3e50;
+}
+
+::selection {
+    background-color: rgba(44, 62, 80, 0.2);
+    color: #2c3e50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+// ... existing code ...
+
+/* Button Styles and Hover Effects */
+.btn {
+    transition: transform 0.1s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #34495e;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Button Styles and Hover Effects */
+.btn {
+    transition: transform 0.1s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #34495e;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ... existing styles ... */
+
+.auth-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.auth-header {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.auth-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ... existing auth styles ... */
+
+/* Landing Page Styles */
+.event-showcase {
+    padding: 2rem;
+    min-height: calc(100vh - 60px); /* Adjust based on your navbar height */
+    background-color: #f5f5f5;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Landing Page Auth Buttons */
+.auth-buttons {
+    text-align: center;
+    margin-top: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 0 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.signup-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Card Styles */
+.event-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.event-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .auth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem;
+    }
+
+    .btn {
+        margin: 0;
+    }
+}
+/* Rainbow Background Animation */
+@keyframes rainbow-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Update the event-showcase class */
+.event-showcase {
+    min-height: calc(100vh - 60px);
+    padding: 2rem;
+    background: linear-gradient(
+        45deg,
+        #ff6b6b,
+        #ffd93d,
+        #6bff84,
+        #6bcaff,
+        #b36bff,
+        #ff6bb5
+    );
+    background-size: 300% 300%;
+    animation: rainbow-bg 15s ease infinite;
+}
+
+/* Update event card styles for better contrast */
+.event-card {
+    /* ... existing styles ... */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Update auth buttons for better visibility */
+.btn {
+    /* ... existing styles ... */
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-btn {
+    background: rgba(0, 123, 255, 0.9);
+    color: white;
+}
+
+.signup-btn {
+    background: rgba(40, 167, 69, 0.9);
+    color: white;
+}
+
+/* Optional: Add text shadow to titles for better readability */
+.event-title {
+    /* ... existing styles ... */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add a subtle gradient overlay to make text more readable */
+.event-showcase::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+    color: #333;
+}
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.genre-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.genre-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.genre-card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.genre-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+}
+.user-welcome {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.user-welcome p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
